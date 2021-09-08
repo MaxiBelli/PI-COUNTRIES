@@ -9,9 +9,6 @@ const router = Router();
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
   try {
-    // const response = await axios.get(
-    //   `https://restcountries.eu/rest/v2/alpha/${id}`
-    // );
     let countryById = await Country.findByPk(id.toUpperCase(), {
       include: Activity,
     });
@@ -32,7 +29,7 @@ router.get("/", async (req, res) => {
               name: { [Op.iLike]: `%${name}%`}
         },
         include: Activity,
-      });
+      })
       countryName.length ?
       res.status(200).json(countryName) :
       res.status(404).send('No se encontró el pais')
@@ -40,11 +37,11 @@ router.get("/", async (req, res) => {
     } else {
       const countries = await Country.findAll({
         include: [{ model: Activity, require: true }],
-      });
+      })
       res.send(countries);
     }
   } catch (error) {
-    res.status(400).send(error);
+       res.status(404).send(error);
   }
 });
 
