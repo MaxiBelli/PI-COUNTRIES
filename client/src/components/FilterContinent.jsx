@@ -15,7 +15,7 @@ export default function FilterContinent (){
         <div> 
         <h2>Filtered By:</h2>  
             <select onChange={e => handleFilterContinent(e)}>
-                <option value = "-Continent-">-Continent-</option>
+                <option value = "all">-Continent-</option>
                 <option value = "Africa">Africa</option>
                 <option value = "Americas">Americas</option>
                 <option value = "Asia">Asia</option>

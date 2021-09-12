@@ -91,25 +91,33 @@ function rootReducer(state = initialState, action){
             }
 
         case "FILTER_BY_ACTIVITY":
-            // const countriesAll = state.allCountries
-            // const activityCountries = countriesAll.filter(el => el.activities)  
-            // const activityFiltered = action.payload === '-Activity-' ? countriesAll : activityCountries.filter(el => el.name === action.payload)
-            // return {
-            //     ...state,
-            //     countries: activityFiltered
-            // }
             const countriesAll = state.allCountries
-            const mapeo = countriesAll.map(el => {
+            const mapeo = countriesAll?.map(el => {
                 return {...el, activities: el.activities.map(el => el.name)}
             })
-            const activityFiltered = action.payload === '-Activity-' ? countriesAll : mapeo.filter(el => {
+            const activityFiltered = action.payload === 'all' ? countriesAll : mapeo.filter(el => {
                 return el.activities.includes(action.payload)
             })
             return {
-                ...state,
-                countries: activityFiltered
-            } 
-           
+                    ...state,
+                    countries: activityFiltered
+                }
+
+            // return {
+            //     ...state,
+            //     countries: state.countries.filter((c) =>{
+            //         return c.activities?.some((a)=> a.name === action.payload)
+            //     })
+            // } 
+        //     let count = state.countries;
+        //     let activities = state.activities
+        //     let activity = activities.filter(a => a.name === action.payload)
+        //     let countriesByActivity = activity[0].countries.map((c) => {return c.id});
+        //     let countriesFiltered = count.filter(c => countriesByActivity.includes(c.id))
+        //     return {
+        //       ...state,
+        //       countries: countriesFiltered
+        //   }
         
 
             default:

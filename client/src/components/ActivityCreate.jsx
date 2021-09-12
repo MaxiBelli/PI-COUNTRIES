@@ -1,7 +1,8 @@
+
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getActivities, postActivity } from "../actions";
+import { getActivities, getCountries, postActivity } from "../actions";
 
 function validate(input) {
   let errors = {};
@@ -11,79 +12,86 @@ function validate(input) {
     errors.duration = "Complete the Activity Duration field";
   } if (!input.difficulty) {
     errors.difficulty = "Check a box corresponding to the difficulty";
-  } else if (!input.season) {
-    errors.difficulty = "Check a box corresponding to the season";
+  } if (!input.season) {
+    errors.season = "Check a box corresponding to the season";
+  } if (!input.countries) {
+    errors.countries = "Select the corresponding country / countries";
   }
     return errors;
 
 }
 export default function ActivityCreated() {
   const dispatch = useDispatch();
-  const history = useHistory();
-  const activities = useSelector((state) => state.activities);
-  const allCountries = useSelector((state) => state.allCountries);
-  const countries = useSelector((state) => state.countries);
+  // const history = useHistory();
+  // const activities = useSelector((state) => state.activities);
+  // const allCountries = useSelector((state) => state.allCountries);
+  const allCountries = useSelector((state) => state.countries);
 
 
   const [errors, setErrors] = useState({});
+
   const [input, setInput] = useState({
     name: "",
     difficulty: "",
     duration: "",
     season: "",
     countries: [],
-    allCountries: []
+    // allCountries: []
   });
 
   function handleChangeName(e) {
-    setInput({
-      ...input,
-      [e.target.name]: e.target.value,
-    });
+    setInput({ ...input, [e.target.name]: e.target.value
+      });
     setErrors(
-      validate({
-        ...input,
-        [e.target.name]: e.target.value,
+      validate({ ...input,[e.target.name]: e.target.value,
       })
     );
-    console.log(input);
   }
 
   function handleChangeDuration(e) {
-    setInput({
-      ...input,
-      [e.target.name]: e.target.value,
-    });
+    setInput({...input, [e.target.name]: e.target.value,
+      });
+    setErrors(
+      validate({ ...input, [e.target.name]: e.target.value,
+      })
+    );
   }
 
   function handleCheckDifficulty(e) {
     if (e.target.checked) {
-      setInput({
-        ...input,
-        difficulty: e.target.value,
+      setInput({...input, difficulty: e.target.value,
       });
     }
+    setErrors(
+      validate({...input, difficulty: e.target.value,
+      })
+    );
   }
+
   function handleCheckSeason(e) {
     if (e.target.checked) {
-      setInput({
-        ...input,
-        season: e.target.value,
-      });
+      setInput({...input, season: e.target.value,
+     });
     }
+    setErrors(
+      validate({...input, season: e.target.value,
+      })
+    );
   }
 
   function handleSelectCountry(e) {
     setInput({
-      ...input,
-      countries: [...input.countries, e.target.value],
+      ...input, countries: [...input.countries, e.target.value],
     });
+    setErrors(
+      validate({...input, countries: [...input.countries, e.target.value],
+      })
+    );
   }
 
-  function handleDeleteCountry(el) {
+  function handleDeleteCountry(e) {
     setInput({
-      ...input,
-      countries: input.countries.filter((ctry) => ctry !== el),
+      ...input, countries: input.countries.filter((ctry) => ctry !== e),
     });
   }
 
@@ -98,12 +106,13 @@ export default function ActivityCreated() {
     season: "",
     countries: [],
     });
-    history.push("/countries");
+    // history.push("/countries");
   }
 
   useEffect(() => {
+    dispatch(getCountries())
     dispatch(getActivities());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>
@@ -113,7 +122,7 @@ export default function ActivityCreated() {
       <h1>Create Activity!!!</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div>
-          <label>Name</label>
+          <label>Name: </label>
           <input
             type="text"
             value={input.name}
@@ -123,13 +132,13 @@ export default function ActivityCreated() {
           {errors.name && <p className="error">{errors.name}</p>}
         </div>
         <div>
-          <label>Duration</label>
+          <label>Duration: </label>
           <input
             type="number"
             value={input.duration}
             name="duration"
             onChange={(e) => handleChangeDuration(e)}
-          />
+          /> minutes
           {errors.duration && <p className="error">{errors.duration}</p>}
         </div>
         <div>
@@ -179,7 +188,7 @@ export default function ActivityCreated() {
             />
             5
           </label>
-    
+          {errors.difficulty && <p className="error">{errors.difficulty}</p>}
         </div>
         <div>
           <label>Season:</label>
@@ -218,11 +227,13 @@ export default function ActivityCreated() {
               onChange={(e) => handleCheckSeason(e)}
             />
             Summer
-
           </label>
+          {errors.season && <p className="error">{errors.season}</p>}
         </div>
+        <label>Countries: </label>
         <select onChange={(e) => handleSelectCountry(e)}>
-          {allCountries.sort((a, b) => {
+          {allCountries &&
+                 allCountries.sort((a, b) => {
                       if (a.name > b.name) {
                         return 1;
                       }
@@ -231,19 +242,21 @@ export default function ActivityCreated() {
                       }
                       return 0;
                     })
-          .map((ctry) => (
+          ?.map((ctry) => (
             <option value={ctry.name}>{ctry.name}</option>
           ))}
         </select>
+        {errors.countries && <p className="error">{errors.countries}</p>}
         <ul>
-          <li>{input.countries.map((el) => el + " ,")}</li>
+          <li>{input.countries.map((ctry) => ctry + " - ")}</li>
         </ul>
+        
         <button type="submit">Create Activity</button>{" "}
       </form>
-      {input.countries.map((el) => (
+      {input.countries.map((ctry) => (
         <div>
-          <p>{el}</p>
-          <button onClick={() => handleDeleteCountry(el)}>
+          <p>{ctry}</p>
+          <button onClick={() => handleDeleteCountry(ctry)}>
             X
           </button>
         </div>

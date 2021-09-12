@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React  from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getDetailCountry } from "../actions/index";
 import { useDispatch , useSelector } from "react-redux";
 import Activity from "./Activity";
 
 
-export default function Detail(props){
+export default function DetailCountry (props){
     console.log(props)
     // const [loading, setLoading] = useState(false)
     const {id} = props.match.params;
@@ -15,7 +16,7 @@ export default function Detail(props){
 
     useEffect(() => {
       dispatch(getDetailCountry(id));
-    }, []);
+    }, [dispatch, id]);
 
 
 
@@ -27,13 +28,13 @@ return (
         <div>
           <h1>{country.name}</h1>
           <h2>({country.id})</h2>
-          <img src={country.flag} alt= "no hay imagen"/>
+          <img src={country.flag} alt= "no hay imagen" width="300px" height="300px"/>
           {country.capital ? <h2>Capital: {country.capital}</h2> : null}
-          <h3>Continent: {country.continent}</h3> 
-          {country.subregion ? <h4> {country.subregion}</h4> : null}
-          <h4>Population: {country.population} hab.</h4>
-          <h4>Area: {country.area} km2 </h4>
-          <h4>
+          {country.subregion || country.continent ? <h3>Continent: {country.continent} ({country.subregion})</h3> : null}
+           <h4> </h4> 
+          <h3>Population: {new Intl.NumberFormat('es-ES').format(country.population)} hab.</h3>
+          <h3>Area: {new Intl.NumberFormat('es-ES').format(country.area)} km2. </h3>
+          <h3>
             Activities:
             {country.activities && country.activities.length > 0
                 ? country.activities.map((el) => (
@@ -44,8 +45,8 @@ return (
                       difficulty={el.difficulty}
                     />
                   ))
-                : null}
-          </h4>
+                : "  no registered activities"}
+          </h3>
         </div>
       ) 
         

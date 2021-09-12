@@ -30,7 +30,9 @@ conn.sync({ force: true }).then(() => {
             id: el.alpha3Code,
             name: el.name,
             flag: el.flag,
+            capital: el.capital,
             continent: el.region,
+            subregion: el.subregion,
             area: el.area,
             population: el.population,
           }));

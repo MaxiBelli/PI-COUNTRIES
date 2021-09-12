@@ -14,6 +14,19 @@ export function getCountries(){
     }
 }
 
+// export function getCountries(order, filter){
+//     return async function (dispatch){
+//         var json = await axios ("http://localhost:3001/countries?order="+ order + "&filter=" + filter,
+//         {
+
+//         });
+//         return dispatch({
+//             type: "GET_COUNTRIES",
+//             payload: json.data
+//         })
+//     }
+// }
+
 export function getNameCountries(name){
     return async function(dispatch){
         try{
@@ -88,21 +101,21 @@ export function getActivities(){
     }
 }
 
-// export function postActivity(payload){
-//             var response = axios.post ("http://localhost:3001/activities", payload)
-//             console.log(response)
-//             return {
-//                 type: "POST_ACTIVITY",
-//                 response
-//     }
-// }
+export function postActivity(payload){
+            var response = axios.post ("http://localhost:3001/activities", payload)
+            console.log(response)
+            return {
+                type: "POST_ACTIVITY",
+                response
+    }
+}
 
-export function postActivity(name, difficulty, duration, season, countries) {
-    axios.post("http://localhost:3001/activities", {
-      name,
-      difficulty,
-      duration,
-      season,
-      countries,
-    });
-  }
+// export function postActivity(name, difficulty, duration, season, countries) {
+//     axios.post("http://localhost:3001/activities", {
+//       name,
+//       difficulty,
+//       duration,
+//       season,
+//       countries,
+//     });
+//   }

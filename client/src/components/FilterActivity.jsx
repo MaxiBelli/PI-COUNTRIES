@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { filterCountriesByActivity } from "../actions";
 
 
-export default function FilterActivity (allActivities){
+export default function FilterActivity ({allActivities}){
 
     const dispatch = useDispatch();
     
@@ -14,12 +14,12 @@ export default function FilterActivity (allActivities){
     return(
         <div>
             <select onChange={e => handleFilterActivity(e)}>
-            <option value = "-Activity-">Activity</option>
+            <option value = "all">-Activity-</option>
           {allActivities
-            ? allActivities.map((el) => {
-                return <option value = {`${el.name}`} >{el.name}</option>;
+            && allActivities.map((el) => {
+                return <option key= {el.id} value = {`${el.name}`} >{el.name}</option>;
               })
-            : ""}
+            }
             </select>
         </div>
     )

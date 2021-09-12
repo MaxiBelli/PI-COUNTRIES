@@ -9,9 +9,9 @@ module.exports = (sequelize) => {
       // unique: true,
       allowNull: false,
       primaryKey: true,
-      validate: {
-        len: 3,
-      },
+      // validate: {
+      //   len: 3,
+      // },
     },
 
     name: {
@@ -29,8 +29,17 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
 
+    capital: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
+    subregion: {
+      type: DataTypes.STRING,
+    },
+
     area: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.FLOAT,//ver
     },
 
     population: {

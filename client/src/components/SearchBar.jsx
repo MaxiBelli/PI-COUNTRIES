@@ -12,7 +12,7 @@ export default function SearchBar (){
     function handleInputChange(e){//voy a guardar en mi estado local lo q vaya apareciendo en el input
         e.preventDefault()
         setName(e.target.value)
-        console.log(name)
+        
     }
 
     function handleSubmit(e){
