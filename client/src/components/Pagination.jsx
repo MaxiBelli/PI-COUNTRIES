@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./Pagination.css"
 
 export default function Pagination ({countriesPerPage, allCountries, pagination}){//me las traigo como props del otro comp
     const pageNumbers = []
@@ -11,11 +11,11 @@ export default function Pagination ({countriesPerPage, allCountries, pagination}
 
     return (
         <nav>
-            <ul className="paginado" key="paginado">
+            <ul className="pagination" key="pagination">
                 { pageNumbers && 
                 pageNumbers.map(number => (
-                    <button>
-                    <li className="number" key= {number}>
+                    <button className="pagenumber">
+                    <li className="pagenumber" key= {number}>
                         <a onClick={() => pagination(number)}>{number}</a>
                     </li>
                     </button>

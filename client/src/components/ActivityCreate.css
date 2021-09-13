@@ -1,0 +1,31 @@
+.form {
+    border-radius: 20px;
+    background-color: white;
+    border-color: black solid 1px;
+    height: 500px;
+    width: 450px;
+    text-align: left;
+    padding: 2vw;
+    /* align-content: center; */
+    /* list-style: none; */
+    /* display: grid; */
+}
+.create {
+    display: inline-block;
+}
+.delete {
+    /* display: flex; */
+    margin: 3px;
+}
+.h10 {
+    text-align: center;
+}
+.buttoncreate {
+    text-align: center;
+}
+.remove {
+    display: flex;
+}
+.punto {
+    list-style: none;
+}

@@ -1,0 +1,30 @@
+.detailcountry {
+    /* text-align: center; */
+    /* display: inline-block;
+    border-color: black solid 1px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;  */
+    /* flex-wrap: wrap; */
+    /* column-count: 3;
+    text-align: justify; */
+    /* display: contents; */
+    justify-content: center;
+    
+    
+
+
+}
+.left{
+    float: left;
+    width: 33.3%;
+}
+
+.rigth{
+    float: right;
+    width: 33.3%;
+}
+.center{
+    
+   display:inline-block
+}

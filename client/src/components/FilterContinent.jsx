@@ -13,7 +13,7 @@ export default function FilterContinent (){
 
     return(
         <div> 
-        <h2>Filtered By:</h2>  
+        <h3>Filtered By:</h3>  
             <select onChange={e => handleFilterContinent(e)}>
                 <option value = "all">-Continent-</option>
                 <option value = "Africa">Africa</option>

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getActivities, getCountries, postActivity } from "../actions";
+import "./ActivityCreate.css"
 
 function validate(input) {
   let errors = {};
@@ -115,11 +116,13 @@ export default function ActivityCreated() {
   }, [dispatch]);
 
   return (
-    <div>
+      <div className="create">
+      <div >
       <Link to="/countries">
         <button>Back</button>
       </Link>
-      <h1>Create Activity!!!</h1>
+      <div className="form">
+      <h1 className="h10">Create Activity!!!</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div>
           <label>Name: </label>
@@ -248,19 +251,25 @@ export default function ActivityCreated() {
         </select>
         {errors.countries && <p className="error">{errors.countries}</p>}
         <ul>
+
+          <div className="punto">
           <li>{input.countries.map((ctry) => ctry + " - ")}</li>
+          </div>
         </ul>
-        
-        <button type="submit">Create Activity</button>{" "}
       </form>
+      <div className="buttoncreate">
+      <button type="submit">Create Activity</button>{" "}
+      </div>
+      <div className="remove">     
       {input.countries.map((ctry) => (
-        <div>
-          <p>{ctry}</p>
-          <button onClick={() => handleDeleteCountry(ctry)}>
-            X
-          </button>
+        <div className="delete">
+          <p>{ctry} <button onClick={() => handleDeleteCountry(ctry)}> X </button> - </p>
+          
         </div>
       ))}
+      </div> 
+      </div>
     </div>
-  );
-}
+    </div>
+    );
+  }

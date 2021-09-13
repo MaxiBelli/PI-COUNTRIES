@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getNameCountries } from "../actions"; 
-
+import "./SearchBar.css"
 
 export default function SearchBar (){
     const dispatch = useDispatch()
@@ -22,8 +22,8 @@ export default function SearchBar (){
 
 
     return (
-        <div>
-            <input
+        <div >
+            <input className="searchbar"
             type= "text"
             placeholder= "Search Countries..."
             onChange = {(e) => handleInputChange(e)}

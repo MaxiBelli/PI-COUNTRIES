@@ -1,0 +1,25 @@
+.card {
+    border: 2px solid black;
+    margin: 5px ;
+    width: 15vw;
+    height: 15vw;
+    text-decoration: none; 
+    border: 0.1rem #000000 solid;
+    /* background-color: black; */
+    border-radius: 1rem;
+    margin: 1.3rem;
+    margin-top: 1.3rem;
+    text-decoration: none;
+    /* width: 12em;
+    height: 12em; */
+    padding: 3em;
+    transition: 0.35s;
+    background-color: transparent;
+    opacity: 1.50;
+}
+
+.card:hover {
+    text-decoration: none;
+    border: 0.2rem #020105 solid;
+    transform: scale(1.15);
+  }

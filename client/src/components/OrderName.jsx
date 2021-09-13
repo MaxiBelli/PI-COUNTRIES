@@ -16,7 +16,7 @@ export default function OrderName ({ setCurrentPage, setOrder}){
 
     return(
         <div>
-            <h2>Order By:</h2>
+            <h3>Order By:</h3>
             <select onChange={e => handleSortName(e)}>
                  <option>-Name-</option>
                 <option value = "asc">Ascendente</option>
