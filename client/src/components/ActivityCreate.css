@@ -1,11 +1,13 @@
 .form {
-    border-radius: 20px;
+    border-radius: 20px ;
     background-color: white;
-    border-color: black solid 1px;
+    border: 0.2rem steelblue solid;
     height: 500px;
     width: 450px;
     text-align: left;
     padding: 2vw;
+    margin: 5px;
+    padding-top: 2vw;
     /* align-content: center; */
     /* list-style: none; */
     /* display: grid; */
@@ -19,6 +21,8 @@
 }
 .h10 {
     text-align: center;
+    color: steelblue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .buttoncreate {
     text-align: center;
@@ -28,4 +32,27 @@
 }
 .punto {
     list-style: none;
+}
+p.error {
+    color: red;
+    font-size: 13px;
+  }
+  
+input.danger {
+    border: 2px solid red;
+  }
+
+.label {
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+    padding: 1vw;
+    margin-top: 1vw;
+    
+}
+.inputform {
+    width: 300px;
+    
+}
+.check{
+    justify-content: center;
 }

@@ -1,21 +1,22 @@
 .card {
     border: 2px solid black;
-    margin: 5px ;
-    width: 15vw;
-    height: 15vw;
-    text-decoration: none; 
+    /* margin: 5px ; */
+    width: 22vw;
+    height: 20vw;
+    color: black;
     border: 0.1rem #000000 solid;
     /* background-color: black; */
     border-radius: 1rem;
     margin: 1.3rem;
     margin-top: 1.3rem;
-    text-decoration: none;
     /* width: 12em;
     height: 12em; */
-    padding: 3em;
+    /* padding: 3em; */
     transition: 0.35s;
-    background-color: transparent;
-    opacity: 1.50;
+    background-color: rgba(0,0,0,0.2);
+    -webkit-text-stroke:white 0.03px
+    
+    
 }
 
 .card:hover {

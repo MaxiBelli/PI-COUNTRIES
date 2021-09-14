@@ -2,15 +2,22 @@
     display: flex;
    flex-wrap: wrap;
    margin: 5px;
-   text-decoration: none;  
+
    justify-content: center;
 }
 
 .filter {
     /* background: radial-gradient(circle, rgba(44,62,80,1) 0%, black 100%); */
     /* border: 5px solid green; */
-    display:flex;
+    display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-around;
 }
+
+a{
+    text-decoration: none;
+}
+/* .orderlabel{
+    display: inline-block;
+} */

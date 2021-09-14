@@ -10,7 +10,7 @@
     text-align: justify; */
     /* display: contents; */
     justify-content: center;
-    
+    display: flex;
     
 
 
@@ -18,13 +18,27 @@
 .left{
     float: left;
     width: 33.3%;
+    padding-top: 6vw;
+    font-size: x-large;
 }
 
 .rigth{
     float: right;
     width: 33.3%;
+    padding-top: 6vw;
+    text-align: left;
+    margin-left: 20px;
 }
 .center{
-    
-   display:inline-block
+   display:inline-block;
+   padding-top: 6vw;
+}
+
+.ctryact{
+    display: flex;
+    justify-content: center;
+    /* border: black solid 5px; */
+}
+.name{
+    display: inline;
 }

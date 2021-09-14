@@ -11,5 +11,7 @@
   .pagenumber {
     margin: .50%;
     border-radius: 20px;
-  
+    font-weight: bold;
+    color: white;
+    background-color: steelblue;
   }

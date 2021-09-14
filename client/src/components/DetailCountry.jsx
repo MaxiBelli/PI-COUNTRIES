@@ -23,26 +23,31 @@ export default function DetailCountry (props){
 
 return (
     <div >
+       <Link to="/countries">
+        <button className="button">Back</button>
+      </Link>
       {country && country.id !== id ? (
        <Loading/>
       ) : (
-        <div className="detailcountry">
+        <div >
+          <div className="detailcountry">
          <div className="left">
-          <h1>{country.name}</h1>
-          <h2>({country.id})</h2>
+         <label> <h1>{country.name} ({country.id})</h1></label>
+          {/* <h2>({country.id})</h2> */}
+          {country.subregion || country.continent ? <h3>{country.continent} ({country.subregion})</h3> : null}
           </div>
           <div className="center">
-          <img src={country.flag} alt= "no hay imagen" width="350px" height="200px"/>
+          <img src={country.flag} alt= "no hay imagen" width="400vw" height="250vw"/>
           </div>
           <div className="rigth">
           {country.capital ? <h2>Capital: {country.capital}</h2> : null}
-          {country.subregion || country.continent ? <h3>Continent: {country.continent} ({country.subregion})</h3> : null}
            <h4> </h4> 
-          <h3>Population: {new Intl.NumberFormat('es-ES').format(country.population)} hab.</h3>
-          <h3>Area: {new Intl.NumberFormat('es-ES').format(country.area)} km2. </h3>
+          <h2>Population: {new Intl.NumberFormat('es-ES').format(country.population)} hab.</h2>
+          <h2>Area: {new Intl.NumberFormat('es-ES').format(country.area)} km2. </h2>
           </div>
-          <h3>
-            Activities:
+             </div>
+          <h2>Activities:</h2>
+            <div className="ctryact">
             {country.activities && country.activities.length > 0
                 ? country.activities.map((el) => (
                     <Activity
@@ -52,15 +57,14 @@ return (
                       difficulty={el.difficulty}
                     />
                   ))
-                : "  no registered activities"}
-          </h3>
+                : <h3>no registered</h3>}
+          
+          </div>
         </div>
       ) 
         
       }
-      <Link to="/countries">
-        <button>Back</button>
-      </Link>
+     
     </div>
   );
 }

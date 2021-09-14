@@ -15,7 +15,7 @@ function validate(input) {
     errors.difficulty = "Check a box corresponding to the difficulty";
   } if (!input.season) {
     errors.season = "Check a box corresponding to the season";
-  } if (!input.countries) {
+  } if (input.countries.length === 0) {
     errors.countries = "Select the corresponding country / countries";
   }
     return errors;
@@ -98,6 +98,13 @@ export default function ActivityCreated() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (
+      input.name !== "" &&
+      input.difficulty !== "" &&
+      input.duration !== "" &&
+      input.season !== "" &&
+      input.countries.length !== 0
+    ) {
     dispatch(postActivity(input));
     alert("Successfully created activity!!!");
     setInput({
@@ -107,8 +114,10 @@ export default function ActivityCreated() {
     season: "",
     countries: [],
     });
-    // history.push("/countries");
+  } else {
+    alert("You must complete all the fields to create the activity !!");
   }
+}
 
   useEffect(() => {
     dispatch(getCountries())
@@ -119,14 +128,14 @@ export default function ActivityCreated() {
       <div className="create">
       <div >
       <Link to="/countries">
-        <button>Back</button>
+        <button className="button">Back</button>
       </Link>
       <div className="form">
       <h1 className="h10">Create Activity!!!</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div>
-          <label>Name: </label>
-          <input
+          <label className="label">Name: </label>
+          <input className="inputform"
             type="text"
             value={input.name}
             name="name"
@@ -135,7 +144,7 @@ export default function ActivityCreated() {
           {errors.name && <p className="error">{errors.name}</p>}
         </div>
         <div>
-          <label>Duration: </label>
+          <label className="label">Duration: </label>
           <input
             type="number"
             value={input.duration}
@@ -144,8 +153,9 @@ export default function ActivityCreated() {
           /> minutes
           {errors.duration && <p className="error">{errors.duration}</p>}
         </div>
-        <div>
-          <label>Difficulty:</label>
+        <div className="check">
+          <label className="label">Difficulty:</label>
+
           <label>
             <input
               type="checkbox"
@@ -194,7 +204,7 @@ export default function ActivityCreated() {
           {errors.difficulty && <p className="error">{errors.difficulty}</p>}
         </div>
         <div>
-          <label>Season:</label>
+          <label className="label">Season:</label>
           <label>
             <input
               type="checkbox"
@@ -233,7 +243,7 @@ export default function ActivityCreated() {
           </label>
           {errors.season && <p className="error">{errors.season}</p>}
         </div>
-        <label>Countries: </label>
+        <label className="label">Countries: </label>
         <select onChange={(e) => handleSelectCountry(e)}>
           {allCountries &&
                  allCountries.sort((a, b) => {
@@ -256,14 +266,14 @@ export default function ActivityCreated() {
           <li>{input.countries.map((ctry) => ctry + " - ")}</li>
           </div>
         </ul>
-      </form>
       <div className="buttoncreate">
-      <button type="submit">Create Activity</button>{" "}
+      <button className="button" type="submit">Create Activity</button>
       </div>
+      </form>
       <div className="remove">     
       {input.countries.map((ctry) => (
         <div className="delete">
-          <p>{ctry} <button onClick={() => handleDeleteCountry(ctry)}> X </button> - </p>
+          <p>{ctry} <button className="button" onClick={() => handleDeleteCountry(ctry)}> X </button></p>
           
         </div>
       ))}

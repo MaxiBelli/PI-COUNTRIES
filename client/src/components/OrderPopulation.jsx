@@ -16,7 +16,7 @@ export default function OrderPopulation ({ setCurrentPage, setOrder}){
 
     return(
         <div>
-            <h3>Order By:</h3>
+            {/* <h3>Order By:</h3> */}
             <select onChange={e => handleSortPopulation(e)}>
                  <option>-Population-</option>
                 <option value = "mayor">Mayor</option>

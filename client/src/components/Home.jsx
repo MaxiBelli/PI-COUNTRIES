@@ -54,10 +54,10 @@ return (
         <div>
           <NavBar/>  
         <div className="filter">
-        <OrderName setCurrentPage={setCurrentPage} setOrder={setOrder} />
-        <OrderPopulation setCurrentPage={setCurrentPage} setOrder={setOrder} />
-        <FilterContinent/>
-        <FilterActivity allActivities={activities}/>
+        <label className="orderlabel"><OrderName setCurrentPage={setCurrentPage} setOrder={setOrder} />
+        <OrderPopulation setCurrentPage={setCurrentPage} setOrder={setOrder} /></label>
+        <label> <FilterContinent/>
+        <FilterActivity allActivities={activities}/></label>
         </div>
         <div> 
             <div> 

@@ -14,11 +14,3 @@ code {
     monospace;
 }
 
-p.error {
-  color: red;
-  font-size: 15px;
-}
-
-input.danger {
-  border: 2px solid red;
-}

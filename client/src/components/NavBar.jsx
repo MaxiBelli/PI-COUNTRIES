@@ -14,7 +14,7 @@ export default function CardCountries(){
         <div className="Nav" >
                         <ReloadCountries />
                         <Link to='/activity'><button className="button">Create Activity</button></Link>
-                        <Link to='/'><h1 className="h1app" >COUNTRIES APP</h1></Link>
+                        <Link to='/'><h1 className="h1app" >COUNTRIES  APP</h1></Link>
                         <SearchBar/>
         </div>
     )

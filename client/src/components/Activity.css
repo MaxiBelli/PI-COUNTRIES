@@ -1,0 +1,8 @@
+.activities {
+    margin: 5px;
+    border-radius: 20px ;
+    border-color: black solid 1px;
+    width: 15vw;
+    height: 15vw;
+    background-color: rgba(0,0,0,0.2);
+}

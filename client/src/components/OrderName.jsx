@@ -16,11 +16,11 @@ export default function OrderName ({ setCurrentPage, setOrder}){
 
     return(
         <div>
-            <h3>Order By:</h3>
+            <h3 className="orderfilter">Order By:</h3>
             <select onChange={e => handleSortName(e)}>
                  <option>-Name-</option>
-                <option value = "asc">Ascendente</option>
-                <option value = "desc">Descendente</option>
+                <option value = "asc">Ascendent</option>
+                <option value = "desc">Descendent</option>
             </select>
         </div>
     )

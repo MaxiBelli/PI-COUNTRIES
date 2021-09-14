@@ -13,7 +13,7 @@ export default function FilterActivity ({allActivities}){
 
     return(
         <div>
-            <h3>Filtered By:</h3>  
+            {/* <h3>Filtered By:</h3>   */}
             <select onChange={e => handleFilterActivity(e)}>
             <option value = "all">-Activity-</option>
           {allActivities

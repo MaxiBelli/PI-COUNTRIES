@@ -14,7 +14,7 @@ export default function ReloadCountries () {
 
     return(
         <div>
-            <button onClick={e=>{handleSubmit(e)}}>All Countries</button>
+            <button className="button" onClick={e=>{handleSubmit(e)}}>All Countries</button>
         </div>
     )
 }
