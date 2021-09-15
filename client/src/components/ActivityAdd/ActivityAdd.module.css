@@ -56,3 +56,10 @@ input.danger {
 .check{
     justify-content: center;
 }
+.button {
+    border-radius: 10px;
+    font-size: 120%;
+    font-weight: bold;
+    color: white;
+    background-color: steelblue;
+}

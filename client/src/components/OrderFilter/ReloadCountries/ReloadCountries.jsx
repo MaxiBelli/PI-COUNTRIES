@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { getCountries } from "../actions"; 
-// import style from './cleanFilters.module.css'
+import { getCountries } from "../../../redux/actions" 
+import style from "./ReloadCountries.module.css"
 
 
 export default function ReloadCountries () {
@@ -14,7 +14,7 @@ export default function ReloadCountries () {
 
     return(
         <div>
-            <button className="button" onClick={e=>{handleSubmit(e)}}>All Countries</button>
+            <button className={style.button} onClick={e=>{handleSubmit(e)}}>All Countries</button>
         </div>
     )
 }

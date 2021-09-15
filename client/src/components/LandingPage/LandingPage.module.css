@@ -3,3 +3,10 @@
     justify-content: center;
     background: ("https://images2.alphacoders.com/887/thumb-1920-887674.jpg");
 }
+.button {
+    border-radius: 10px;
+    font-size: 120%;
+    font-weight: bold;
+    color: white;
+    background-color: steelblue;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { orderByPopulation } from "../actions";
+import { orderByPopulation } from "../../../redux/actions"
 
 
 export default function OrderPopulation ({ setCurrentPage, setOrder}){

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { orderByName } from "../actions";
+import { orderByName } from "../../../redux/actions"
 
 
 export default function OrderName ({ setCurrentPage, setOrder}){

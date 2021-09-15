@@ -68,15 +68,15 @@ function rootReducer(state = initialState, action){
     
                 case "ORDER_BY_POPULATION":
                     
-                let sortedPopulation = action.payload === "menor" ? 
+                let sortedPopulation = action.payload === "mayor" ? 
                 state.countries.sort(function(a, b){
     
-                return a.population - b.population}) :
+                return b.population - a.population})  :
     
                 state.countries.sort(function(a, b){
                 
-                return b.population - a.population}) 
-             
+                return a.population - b.population})
+
                 return {
                     ...state,
                     countries: sortedPopulation
@@ -92,34 +92,16 @@ function rootReducer(state = initialState, action){
 
         case "FILTER_BY_ACTIVITY":
             const countriesAll = state.allCountries
-            const mapeo = countriesAll?.map(el => {
-                return {...el, activities: el.activities.map(el => el.name)}
+            const activityCountries = countriesAll?.map(country => {
+                return {...country, activities: country.activities.map(act => act.name)}
             })
-            const activityFiltered = action.payload === 'all' ? countriesAll : mapeo.filter(el => {
+            const activityFiltered = action.payload === 'all' ? countriesAll : activityCountries.filter(el => {
                 return el.activities.includes(action.payload)
             })
             return {
                     ...state,
                     countries: activityFiltered
-                }
-
-            // return {
-            //     ...state,
-            //     countries: state.countries.filter((c) =>{
-            //         return c.activities?.some((a)=> a.name === action.payload)
-            //     })
-            // } 
-        //     let count = state.countries;
-        //     let activities = state.activities
-        //     let activity = activities.filter(a => a.name === action.payload)
-        //     let countriesByActivity = activity[0].countries.map((c) => {return c.id});
-        //     let countriesFiltered = count.filter(c => countriesByActivity.includes(c.id))
-        //     return {
-        //       ...state,
-        //       countries: countriesFiltered
-        //   }
-        
-
+                } 
             default:
                 return state;
     }

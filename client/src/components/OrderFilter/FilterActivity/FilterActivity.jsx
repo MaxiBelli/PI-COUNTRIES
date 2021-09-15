@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { filterCountriesByActivity } from "../actions";
+import { filterCountriesByActivity } from "../../../redux/actions";
 
 
 export default function FilterActivity ({allActivities}){

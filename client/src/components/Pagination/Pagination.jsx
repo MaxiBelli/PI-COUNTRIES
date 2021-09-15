@@ -1,7 +1,7 @@
 import React from "react";
-import "./Pagination.css"
+import style from "./Pagination.module.css"
 
-export default function Pagination ({countriesPerPage, allCountries, pagination}){//me las traigo como props del otro comp
+export default function Pagination ({countriesPerPage, allCountries, pagination}){
     const pageNumbers = []
 
 
@@ -11,11 +11,11 @@ export default function Pagination ({countriesPerPage, allCountries, pagination}
 
     return (
         <nav>
-            <ul className="pagination" key="pagination">
+            <ul className={style.pagination} key="pagination">
                 { pageNumbers && 
                 pageNumbers.map(number => (
-                    <button className="pagenumber">
-                    <li className="pagenumber" key= {number}>
+                    <button className={style.pagenumber}>
+                    <li className={style.pagenumber} key= {number}>
                         <a onClick={() => pagination(number)}>{number}</a>
                     </li>
                     </button>

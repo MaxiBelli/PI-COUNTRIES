@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getActivities, getCountries, postActivity } from "../actions";
-import "./ActivityCreate.css"
+import { getActivities, getCountries, postActivity } from "../../redux/actions";
+import style from "./ActivityAdd.module.css"
 
 function validate(input) {
   let errors = {};
@@ -21,7 +21,7 @@ function validate(input) {
     return errors;
 
 }
-export default function ActivityCreated() {
+export default function ActivityAdd() {
   const dispatch = useDispatch();
   // const history = useHistory();
   // const activities = useSelector((state) => state.activities);
@@ -90,7 +90,7 @@ export default function ActivityCreated() {
     );
   }
 
-  function handleDeleteCountry(e) {
+  function handleRemoveCountry(e) {
     setInput({
       ...input, countries: input.countries.filter((ctry) => ctry !== e),
     });
@@ -106,7 +106,7 @@ export default function ActivityCreated() {
       input.countries.length !== 0
     ) {
     dispatch(postActivity(input));
-    alert("Successfully created activity!!!");
+    alert("Successfully added activity!!!");
     setInput({
       name: "",
     difficulty: "",
@@ -115,7 +115,7 @@ export default function ActivityCreated() {
     countries: [],
     });
   } else {
-    alert("You must complete all the fields to create the activity !!");
+    alert("You must complete all the fields to add the activity !!!");
   }
 }
 
@@ -125,36 +125,36 @@ export default function ActivityCreated() {
   }, [dispatch]);
 
   return (
-      <div className="create">
+      <div className={style.create}>
       <div >
       <Link to="/countries">
-        <button className="button">Back</button>
+        <button className={style.button}>Back</button>
       </Link>
-      <div className="form">
-      <h1 className="h10">Create Activity!!!</h1>
+      <div className={style.form}>
+      <h1 className={style.h10}>ADD   TOURIST   ACTIVITY!</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div>
-          <label className="label">Name: </label>
-          <input className="inputform"
+          <label className={style.label}>Name: </label>
+          <input className={style.inputform}
             type="text"
             value={input.name}
             name="name"
             onChange={(e) => handleChangeName(e)}
           />
-          {errors.name && <p className="error">{errors.name}</p>}
+          {errors.name && <p className={style.error}>{errors.name}</p>}
         </div>
         <div>
-          <label className="label">Duration: </label>
+          <label className={style.label}>Duration: </label>
           <input
             type="number"
             value={input.duration}
             name="duration"
             onChange={(e) => handleChangeDuration(e)}
           /> minutes
-          {errors.duration && <p className="error">{errors.duration}</p>}
+          {errors.duration && <p className={style.error}>{errors.duration}</p>}
         </div>
-        <div className="check">
-          <label className="label">Difficulty:</label>
+        <div className={style.check}>
+          <label className={style.label}>Difficulty:</label>
 
           <label>
             <input
@@ -201,10 +201,10 @@ export default function ActivityCreated() {
             />
             5
           </label>
-          {errors.difficulty && <p className="error">{errors.difficulty}</p>}
+          {errors.difficulty && <p className={style.error}>{errors.difficulty}</p>}
         </div>
         <div>
-          <label className="label">Season:</label>
+          <label className={style.label}>Season:</label>
           <label>
             <input
               type="checkbox"
@@ -241,9 +241,9 @@ export default function ActivityCreated() {
             />
             Summer
           </label>
-          {errors.season && <p className="error">{errors.season}</p>}
+          {errors.season && <p className={style.error}>{errors.season}</p>}
         </div>
-        <label className="label">Countries: </label>
+        <label className={style.label}>Countries: </label>
         <select onChange={(e) => handleSelectCountry(e)}>
           {allCountries &&
                  allCountries.sort((a, b) => {
@@ -259,21 +259,21 @@ export default function ActivityCreated() {
             <option value={ctry.name}>{ctry.name}</option>
           ))}
         </select>
-        {errors.countries && <p className="error">{errors.countries}</p>}
+        {errors.countries && <p className={style.error}>{errors.countries}</p>}
         <ul>
 
-          <div className="punto">
+          <div className={style.punto}>
           <li>{input.countries.map((ctry) => ctry + " - ")}</li>
           </div>
         </ul>
-      <div className="buttoncreate">
-      <button className="button" type="submit">Create Activity</button>
+      <div className={style.buttoncreate}>
+      <button className={style.button} type="submit">Add Activity</button>
       </div>
       </form>
-      <div className="remove">     
+      <div className={style.remove}>     
       {input.countries.map((ctry) => (
-        <div className="delete">
-          <p>{ctry} <button className="button" onClick={() => handleDeleteCountry(ctry)}> X </button></p>
+        <div className={style.delete}>
+          <p>{ctry} <button className={style.button} onClick={() => handleRemoveCountry(ctry)}> X </button></p>
           
         </div>
       ))}

@@ -11,7 +11,7 @@
     /* display: contents; */
     justify-content: center;
     display: flex;
-    
+    background-color: rgba(0,0,0,0.1);
 
 
 }
@@ -41,4 +41,14 @@
 }
 .name{
     display: inline;
+}
+.h{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.button {
+    border-radius: 10px;
+    font-size: 120%;
+    font-weight: bold;
+    color: white;
+    background-color: steelblue;
 }

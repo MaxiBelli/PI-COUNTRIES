@@ -1,10 +1,10 @@
 import React from "react";
-import "./Activity.css"
+import style from "./Activity.module.css"
 
 
 function Activity({ name, duration, season, difficulty}) {
   return (
-    <div className="activities" >
+    <div className={style.activities} >
       <h2>{name}</h2>
       <div >
         <h4>Duration: {duration} min</h4>
