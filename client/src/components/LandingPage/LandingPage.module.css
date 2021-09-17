@@ -1,12 +1,32 @@
 .landing {
-    margin-top: 10%;
-    justify-content: center;
-    background: ("https://images2.alphacoders.com/887/thumb-1920-887674.jpg");
+    background-image: url("https://images2.alphacoders.com/887/thumb-1920-887674.jpg");
+    background-size: cover;
+    /* background-color: white; */
+    background-repeat: no-repeat;
+    margin: 0;
+    background-position:inherit;
+    background-attachment: fixed;
+    width:100%;
+    height: 100vh;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .button {
     border-radius: 10px;
-    font-size: 120%;
+    font-size: 150%;
     font-weight: bold;
     color: white;
     background-color: steelblue;
+    margin-top: 20px;
+}
+
+/* body {
+    background: url("https://images2.alphacoders.com/887/887674.jpg");
+
+} */
+.h1 {
+    font-size: 350%;
+    margin-top: 0px;
+    margin-bottom: 30px;
+    font-size: bold;
+   
 }

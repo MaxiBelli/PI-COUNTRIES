@@ -15,3 +15,9 @@
     color: white;
     background-color: steelblue;
   }
+
+  .pagenumber:hover {
+    text-decoration: none;
+    border: 0.9rem;
+    transform: scale(1.1);
+  }

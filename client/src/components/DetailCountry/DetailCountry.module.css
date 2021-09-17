@@ -51,4 +51,9 @@
     font-weight: bold;
     color: white;
     background-color: steelblue;
+    margin: 3px;
 }
+/* 
+.activities {
+    background-color: rgba(0,0,0,0.1);
+} */

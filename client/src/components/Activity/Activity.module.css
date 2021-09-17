@@ -4,5 +4,8 @@
     border-color: black solid 1px;
     width: 15vw;
     height: 15vw;
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.1);
+    padding-top: -500px;
+   
+   
 }

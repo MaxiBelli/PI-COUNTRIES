@@ -1,20 +1,20 @@
 .card {
-    border: 2px solid black;
+    border: 2rem solid black;
     /* margin: 5px ; */
-    width: 22vw;
-    height: 20vw;
+    width: 22em;
+    height: 18em;
     color: black;
     border: 0.1rem #000000 solid;
     /* background-color: black; */
     border-radius: 1rem;
     margin: 1.3rem;
-    margin-top: 1.3rem;
+    margin-top: 0.2rem;
     /* width: 12em;
     height: 12em; */
     /* padding: 3em; */
     transition: 0.35s;
     background-color: rgba(0,0,0,0.2);
-    -webkit-text-stroke:white 0.03px
+   
     
     
 }
@@ -23,4 +23,12 @@
     text-decoration: none;
     border: 0.2rem #020105 solid;
     transform: scale(1.15);
+  }
+
+  .continent {
+      margin-top: 1vw;
+  }
+
+  .name {
+    margin-top: -.0vw;
   }

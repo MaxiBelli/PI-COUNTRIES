@@ -84,9 +84,10 @@ export function orderByPopulation(payload){
         type: "ORDER_BY_POPULATION",
         payload
     
-        }     
-
+        }             
 }
+
+
 export function getActivities(){
     return async function(dispatch){
         try{

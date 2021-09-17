@@ -81,6 +81,7 @@ function rootReducer(state = initialState, action){
                     ...state,
                     countries: sortedPopulation
                 }    
+             
 
         case "FILTER_BY_CONTINENT":
             const allCountries = state.allCountries

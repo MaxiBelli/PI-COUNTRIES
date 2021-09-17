@@ -8,6 +8,7 @@
     padding: 2vw;
     margin: 5px;
     padding-top: 2vw;
+    
     /* align-content: center; */
     /* list-style: none; */
     /* display: grid; */
@@ -33,9 +34,12 @@
 .punto {
     list-style: none;
 }
-p.error {
+.error {
     color: red;
-    font-size: 13px;
+    font-size: 14px;
+    font-size: bold;
+    text-align: center;
+    /* padding-bottom: -10px; */
   }
   
 input.danger {
@@ -62,4 +66,5 @@ input.danger {
     font-weight: bold;
     color: white;
     background-color: steelblue;
+    margin: 3px;
 }
