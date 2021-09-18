@@ -87,6 +87,13 @@ export function orderByPopulation(payload){
         }             
 }
 
+export function orderByGini(payload){
+    return {
+        type: "ORDER_BY_GINI",
+        payload
+    
+        }             
+}
 
 export function getActivities(){
     return async function(dispatch){

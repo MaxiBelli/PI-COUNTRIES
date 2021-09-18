@@ -80,7 +80,7 @@ export default function ActivityAdd() {
       });
     } else {
       alert(
-        "You must complete all the fields to add the activity !!! - Countries field cannot contain repeating names"
+        "You must complete all the fields to add the activity !!!"
       );
     }
   }
@@ -106,16 +106,18 @@ export default function ActivityAdd() {
                 type="text"
                 value={input.name}
                 name="name"
+                autoComplete="off"
                 onChange={(e) => handleChangeName(e)}
               />
               {errors.name && <p className={style.error}>{errors.name}</p>}
             </div>
             <div>
               <label className={style.label}>Duration: </label>
-              <input
+              <input className={style.duration}
                 type="number"
                 value={input.duration}
                 name="duration"
+                autoComplete="off"
                 onChange={(e) => handleChangeDuration(e)}
               />{" "}
               hours.

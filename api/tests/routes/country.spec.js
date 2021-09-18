@@ -9,19 +9,7 @@ const country = {
   name: 'Argentina',
 };
 
-// describe('Country routes', () => {
-//   before(() => conn.authenticate()
-//   .catch((err) => {
-//     console.error('Unable to connect to the database:', err);
-//   }));
-//   beforeEach(() => Country.sync({ force: true })
-//     .then(() => Country.create(pokemon)));
-//   describe('GET /countries', () => {
-//     it('should get 200', () =>
-//       agent.get('/countries').expect(200)
-//     );
-//   });
-// });
+
 describe("Rutas", () => {
   before(() =>
     conn.authenticate().catch((err) => {

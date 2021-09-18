@@ -9,6 +9,7 @@ import {
   orderByPopulation,
   filterCountriesByContinent,
   filterCountriesByActivity,
+  orderByGini
 } from "../../redux/actions";
 import NavBar from "../NavBar//NavBar";
 
@@ -55,6 +56,12 @@ export default function Home() {
     setOrder(e.target.value);
   }
 
+  function handleSortGini(e) {
+    e.preventDefault();
+    dispatch(orderByGini(e.target.value));
+    setCurrentPage(1);
+    setOrder(e.target.value);
+  }
 
   function handleFilterContinent(e) {
     dispatch(filterCountriesByContinent(e.target.value));
@@ -81,6 +88,11 @@ export default function Home() {
             </select>
             <select onChange={(e) => handleSortPopulation(e)}>
               <option>-Population-</option>
+              <option value="mayor">Higher</option>
+              <option value="menor">Lower</option>
+            </select>
+            <select onChange={(e) => handleSortGini(e)}>
+              <option>-Gini-</option>
               <option value="mayor">Higher</option>
               <option value="menor">Lower</option>
             </select>
@@ -126,6 +138,7 @@ export default function Home() {
                     flag={ctry.flag}
                     continent={ctry.continent}
                     population=  {ctry.population}
+                    gini={ctry.gini}
                     key={ctry.id}
                   />
                 </Link>

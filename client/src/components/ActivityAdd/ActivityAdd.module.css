@@ -68,3 +68,7 @@ input.danger {
     background-color: steelblue;
     margin: 3px;
 }
+
+.duration{
+    width: 4rem;
+}
