@@ -67,7 +67,7 @@ export default function ActivityAdd() {
       input.difficulty !== "" &&
       input.duration !== "" &&
       input.season !== "" &&
-      input.countries.length !== 0 
+      input.countries.length !== 0
     ) {
       dispatch(postActivity(input));
       alert("Successfully added activity!!!");
@@ -79,9 +79,7 @@ export default function ActivityAdd() {
         countries: [],
       });
     } else {
-      alert(
-        "You must complete all the fields to add the activity !!!"
-      );
+      alert("You must complete all the fields to add the activity !!!");
     }
   }
 
@@ -113,7 +111,8 @@ export default function ActivityAdd() {
             </div>
             <div>
               <label className={style.label}>Duration: </label>
-              <input className={style.duration}
+              <input
+                className={style.duration}
                 type="number"
                 value={input.duration}
                 name="duration"

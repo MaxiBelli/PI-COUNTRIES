@@ -7,7 +7,6 @@ import Activity from "../Activity/Activity";
 import style from "./DetailCountry.module.css";
 
 export default function DetailCountry(props) {
-
   const { id } = props.match.params;
   const dispatch = useDispatch();
   const country = useSelector((state) => state.detailCountry);
@@ -58,9 +57,11 @@ export default function DetailCountry(props) {
                 habitants.
               </h2>
               {country.area ? (
-              <h2>
-                AREA: {new Intl.NumberFormat("es-ES").format(country.area)} km2.{" "}
-              </h2> ) : null}
+                <h2>
+                  AREA: {new Intl.NumberFormat("es-ES").format(country.area)}{" "}
+                  km2.{" "}
+                </h2>
+              ) : null}
             </div>
           </div>
           <h2>ACTIVITIES:</h2>

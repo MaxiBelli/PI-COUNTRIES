@@ -4,7 +4,6 @@ const { Activity, Country } = require("../db");
 
 const router = Router();
 
-
 router.get("/", async (req, res) => {
   try {
     const activities = await Activity.findAll({
@@ -22,7 +21,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-
 router.post("/", async (req, res) => {
   const { name, difficulty, duration, season, countries } = req.body;
 
@@ -39,7 +37,5 @@ router.post("/", async (req, res) => {
   activityAdd.addCountries(countryDb);
   res.send("Activity created successfuly!!");
 });
-
-
 
 module.exports = router;

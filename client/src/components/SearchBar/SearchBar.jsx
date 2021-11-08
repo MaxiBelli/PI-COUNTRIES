@@ -11,18 +11,17 @@ export default function SearchBar() {
   function handleInputChange(e) {
     e.preventDefault();
     setName(e.target.value);
-
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (name !== ""){
+    if (name !== "") {
       dispatch(getNameCountries(name));
       setName("");
     } else {
       alert("Enter the name of the countries to search");
-  } 
-}
+    }
+  }
   return (
     <div>
       <input

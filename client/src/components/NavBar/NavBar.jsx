@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import ReloadCountries from "../OrderFilter/ReloadCountries/ReloadCountries";
+import ReloadCountries from "../ReloadCountries/ReloadCountries";
 import SearchBar from "../SearchBar/SearchBar";
 
 import style from "./NavBar.module.css";

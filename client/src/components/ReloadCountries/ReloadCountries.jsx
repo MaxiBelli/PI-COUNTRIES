@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { getCountries } from "../../../redux/actions";
+import { getCountries } from "../../redux/actions";
 import style from "./ReloadCountries.module.css";
 
 export default function ReloadCountries() {

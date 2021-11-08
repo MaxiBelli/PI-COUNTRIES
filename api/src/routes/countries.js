@@ -19,7 +19,10 @@ async function getApiCountries(req, res, next) {
 
           defaults: {
             id: el.cca3,
-            name: el.name.common === "Åland Islands" ? "Aland Islands" : el.name.common,
+            name:
+              el.name.common === "Åland Islands"
+                ? "Aland Islands"
+                : el.name.common,
             flag: el.flags[1],
             continent: el.region,
             capital: el.capital ? el.capital[0] : "Not specified",
@@ -77,5 +80,3 @@ router.get("/", async (req, res) => {
 });
 
 module.exports = router;
-
-

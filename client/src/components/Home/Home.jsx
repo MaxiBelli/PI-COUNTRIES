@@ -33,9 +33,10 @@ export default function Home() {
     indexOfLastCountry
   );
 
-  const pagination = (pageNumber) => {//es la q me a ayudar al renderizado
-    setCurrentPage(pageNumber) 
-}
+  const pagination = (pageNumber) => {
+    //es la q me a ayudar al renderizado
+    setCurrentPage(pageNumber);
+  };
 
   useEffect(() => {
     dispatch(getCountries());
@@ -80,7 +81,7 @@ export default function Home() {
         <NavBar />
         <fragment className={style.filter}>
           <label className={style.orderlabel}>
-          <h3>Ordered By:</h3>
+            <h3>Ordered By:</h3>
             <select onChange={(e) => handleSortName(e)}>
               <option>-Name-</option>
               <option value="asc">A-Z</option>
@@ -118,9 +119,11 @@ export default function Home() {
         </fragment>
         <div>
           <div>
-          <Pagination 
-                 countriesPerPage= {countriesPerPage} allCountries={allCountries.length} pagination={pagination}
-                 />
+            <Pagination
+              countriesPerPage={countriesPerPage}
+              allCountries={allCountries.length}
+              pagination={pagination}
+            />
           </div>
         </div>
         <div className={style.container}>
@@ -132,8 +135,7 @@ export default function Home() {
                     name={ctry.name}
                     flag={ctry.flag}
                     continent={ctry.continent}
-                    population=  {ctry.population}
-                    gini={ctry.gini}
+                    population={ctry.population}
                     key={ctry.id}
                   />
                 </Link>
