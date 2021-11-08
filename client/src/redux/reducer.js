@@ -81,22 +81,7 @@ function rootReducer(state = initialState, action){
                     ...state,
                     countries: sortedPopulation
                 }    
-                case "ORDER_BY_GINI":
-                    
-                    let sortedGini = action.payload === "mayor" ? 
-                    state.countries.sort(function(a, b){
-        
-                    return b.gini - a.gini})  :
-        
-                    state.countries.sort(function(a, b){
-                    
-                    return a.gini - b.gini})
-    
-                    return {
-                        ...state,
-                        countries: sortedGini
-                    }    
-
+                
         case "FILTER_BY_CONTINENT":
             const allCountries = state.allCountries
             const continentFiltered = action.payload === "all" ? allCountries : allCountries.filter(el=>  el.continent === action.payload)

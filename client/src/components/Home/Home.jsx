@@ -6,10 +6,10 @@ import {
   getCountries,
   getActivities,
   orderByName,
+  orderByGini,
   orderByPopulation,
   filterCountriesByContinent,
   filterCountriesByActivity,
-  orderByGini
 } from "../../redux/actions";
 import NavBar from "../NavBar//NavBar";
 
@@ -88,11 +88,6 @@ export default function Home() {
             </select>
             <select onChange={(e) => handleSortPopulation(e)}>
               <option>-Population-</option>
-              <option value="mayor">Higher</option>
-              <option value="menor">Lower</option>
-            </select>
-            <select onChange={(e) => handleSortGini(e)}>
-              <option>-Gini-</option>
               <option value="mayor">Higher</option>
               <option value="menor">Lower</option>
             </select>

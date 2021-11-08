@@ -26,7 +26,6 @@ async function getApiCountries(req, res, next) {
             subregion: el.subregion,
             area: el.area,
             population: el.population,
-            gini: el.gini
           },
         });
 
