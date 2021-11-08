@@ -39,7 +39,7 @@ module.exports = (sequelize) => {
     },
 
     area: {
-      type: DataTypes.FLOAT,//ver
+      type: DataTypes.FLOAT,
     },
 
     population: {

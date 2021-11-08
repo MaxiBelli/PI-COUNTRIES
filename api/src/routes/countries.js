@@ -7,23 +7,23 @@ const router = Router();
 
 async function getApiCountries(req, res, next) {
   try {
-    const apiUrl = await axios.get("https://restcountries.eu/rest/v2/all");
+    const apiUrl = await axios.get("https://restcountries.com/v3/all");
     const countriesInfo = await apiUrl.data;
 
     countriesInfo.map(async (el) => {
       try {
         const [country, created] = await Country.findOrCreate({
           where: {
-            id: el.alpha3Code,
+            id: el.cca3,
           },
 
           defaults: {
-            id: el.alpha3Code,
-            name: el.name === "Åland Islands" ? "Aland Islands" : el.name,
-            flag: el.flag,
+            id: el.cca3,
+            name: el.name.common === "Åland Islands" ? "Aland Islands" : el.name.common,
+            flag: el.flags[1],
             continent: el.region,
-            capital: el.capital,
-            subregion: el.subregion,
+            capital: el.capital ? el.capital[0] : "Not specified",
+            subregion: el.subregion ? el.subregion : el.region,
             area: el.area,
             population: el.population,
           },
